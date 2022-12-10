@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {findGameBySearchTermThunk} from "./igdb-thunks";
+import GameCard from "./igdb-card";
 
 
 function SearchBar() {
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState('Halo')
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -12,18 +13,24 @@ function SearchBar() {
     }, [])
 
     return(
-        <div className="row mb-2 mt-2">
-            <form className="d-flex">
-                <input className="form-control me-sm-2 rounded-pill p-2 ps-5 w-75" type="text" placeholder="Search a Game"
-                       onChange={(e) => {
-                           setSearchTerm(e.target.value)
-                       }}
-                       value={searchTerm}/>
-                <button className="btn btn-primary  my-2 my-sm-0 rounded-pill ms-3 p-2 ps-4 pe-4" type="submit"
-                    onClick={() => {
-                        dispatch(findGameBySearchTermThunk(searchTerm))}
-                }>Search</button>
-            </form>
+        <div>
+            <ul className="list-group">
+                <li className="list-group-item rounded-pill bg-white">
+                    <button
+                        className="btn btn-primary float-end"
+                        onClick={() => {
+                            dispatch(findGameBySearchTermThunk(searchTerm))
+                        }}>Search
+                    </button>
+                    <input
+                        className="form-control w-75 border-0"
+                        onChange={(e) => {
+                            setSearchTerm(e.target.value)
+                        }}
+                        value={searchTerm}/>
+                </li>
+            </ul>
+
 
         </div>
     );

@@ -4,7 +4,7 @@ import {findGameBySearchTermThunk} from "./igdb-thunks";
 
 const initialState = {
     games: [],
-    loading: false
+    loading: true
 }
 
 const igdbReducer = createSlice({

@@ -12,6 +12,7 @@ import SearchComponent from "./igdb";
 import {Provider} from "react-redux";
 import igdbReducer from "./igdb/igdb-reducer";
 
+
 const store = configureStore({
     reducer: {
         igdb: igdbReducer,
@@ -20,7 +21,6 @@ const store = configureStore({
 
 function App() {
   return (
-
         <div className="container-extend-lg">
             <Provider store={store}>
                 <BrowserRouter>

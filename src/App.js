@@ -1,9 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit";
+
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from "./home";
+// import Home from "./home";
+import Login from "./login";
 import './App.css';
 import NavbarContent from "./nav";
-import OmdbSearch from "./omdb/omdb-search";
 import SearchComponent from "./igdb";
 import {Provider} from "react-redux";
 import igdbReducer from "./igdb/igdb-reducer";
@@ -23,8 +24,10 @@ function App() {
                 <BrowserRouter>
                     <NavbarContent/>
                     <Routes>
-                        <Route index path="/*" element={<Home/>}/>
-                        <Route path="/home/*" element={<Home/>}/>
+
+                        {/*<Route index path="/*" element={<Home/>}/>*/}
+                        {/*<Route path="/home/*" element={<Home/>}/>*/}
+                        <Route path="/login" element={<Login/>}/>
                         <Route path="/search" element={<SearchComponent/>}/>
                         <Route path="/search/:gid" element={<DetailComponent/>}/>
                     </Routes>

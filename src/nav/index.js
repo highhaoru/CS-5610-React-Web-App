@@ -13,16 +13,21 @@ function NavbarContent() {
         <div className="w-100 row bg-dark m-0 ">
             <div className="col-2"></div>
             <nav className="col-8 navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="/">Gams Station</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a className="navbar-brand" href="/home">Game Station</a>
+                <button className="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav navbar-right" style={{ maxHeight: '100px'}}>
-                        <li className="nav-item active">
-                            <a className="nav-link" href="/home">Home</a>
-                        </li>
+                        {/*<li className="nav-item active">*/}
+                        {/*    <a className="nav-link" href="">Home</a>*/}
+                        {/*</li>*/}
                         <li className="nav-item">
                             <a className="nav-link" href="/search">Search</a>
                         </li>
@@ -35,7 +40,9 @@ function NavbarContent() {
                     </ul>
                 </div>
                 <div className="float-end">
-                    <button className="btn btn-outline-secondary me-2">login</button>
+                    <button className="btn btn-outline-secondary me-2">
+                        <a className="nav-link" href="/login">login / register</a>
+                    </button>
                     <button className="btn btn-primary">Get Started</button>
                 </div>
             </nav>

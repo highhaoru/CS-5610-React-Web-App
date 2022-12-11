@@ -1,5 +1,6 @@
 import React from "react";
 import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 
 const GameCard = (
@@ -13,8 +14,13 @@ const GameCard = (
         }
     }
 ) =>{
+    const navigate = useNavigate();
+
     return (
-        <li className="row mt-4">
+        <li className="row mt-4" onClick={(e)=>{
+            navigate('/search/'+ game.imdbID, {state: game})
+            // console.log()
+        }}>
             <div className="col-2"></div>
             <div className="col-2">
                 <img src={`${game.Poster}`} style={{height:240,width:180}}/>

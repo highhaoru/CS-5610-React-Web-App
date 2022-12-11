@@ -23,6 +23,7 @@ function SearchBar() {
                         }}>Search
                     </button>
                     <input
+                        placeholder="Enter a game to search"
                         className="form-control w-75 border-0"
                         onChange={(e) => {
                             setSearchTerm(e.target.value)

@@ -4,7 +4,7 @@ import {findGameBySearchTermThunk} from "./igdb-thunks";
 
 const initialState = {
     games: [],
-    loading: true
+    loading: false
 }
 
 const igdbReducer = createSlice({
@@ -13,6 +13,7 @@ const igdbReducer = createSlice({
     extraReducers: {
         [findGameBySearchTermThunk.fulfilled]: (state, action) => {
             state.games = action.payload
+            state.loading = true
         }
     }
 })

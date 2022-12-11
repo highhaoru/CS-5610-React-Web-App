@@ -15,9 +15,10 @@ const GameCard = (
     }
 ) =>{
     const navigate = useNavigate();
+
     return (
         <li className="row mt-4" onClick={(e)=>{
-            navigate('/games/details/'+ game.imdbID)
+            navigate('/search/'+ game.imdbID, {state: game})
             // console.log()
         }}>
             <div className="col-2"></div>

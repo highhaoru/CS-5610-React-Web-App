@@ -6,10 +6,24 @@ import {useDispatch, useSelector} from "react-redux";
 function SearchComponent() {
     const {games, loading} = useSelector((state) => state.igdb)
     const dispatch = useDispatch()
+
     return(
         <div className="container">
             <h2>Search</h2>
             <SearchBar/>
+
+            {
+                !loading &&
+                <li className="list-group-item">
+                    Loading...
+                </li>
+            }
+            {
+                !games &&
+                <div>
+                    No results, please enter a name
+                </div>
+            }
             {
                 games && games.map((game) =>
                     <GameCard key={game.imdbID} game={game}/>
@@ -19,15 +33,9 @@ function SearchComponent() {
                     // </li>
                 )
             }
-            {/*{*/}
-            {/*    <ul className="list-group">*/}
-            {/*        {*/}
-            {/*            games.map(post =>*/}
-            {/*                <GameCard*/}
-            {/*                    key={post.imdbID} post={post}/> )*/}
-            {/*        }*/}
-            {/*    </ul>*/}
-            {/*}*/}
+
+
+
 
         </div>
     );

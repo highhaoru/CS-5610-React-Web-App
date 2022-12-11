@@ -25,8 +25,8 @@ function App() {
                     <Routes>
                         <Route index path="/*" element={<Home/>}/>
                         <Route path="/home/*" element={<Home/>}/>
-                        <Route path="/search/*" element={<SearchComponent/>}/>
-                        <Route path="/games/details/:gid" element={<DetailComponent/>}/>
+                        <Route path="/search" element={<SearchComponent/>}/>
+                        <Route path="/search/:gid" element={<DetailComponent/>}/>
                     </Routes>
                 </BrowserRouter>
             </Provider>

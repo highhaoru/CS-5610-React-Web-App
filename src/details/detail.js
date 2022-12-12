@@ -1,8 +1,8 @@
 import React from "react";
 import {useParams, useLocation} from "react-router-dom";
 
-import NewReview from "./newReview";
-import ReviewList from "./reviewList";
+import NewReview from "./new-review";
+import ReviewList from "./review-list";
 
 
 

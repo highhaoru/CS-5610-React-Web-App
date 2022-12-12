@@ -10,14 +10,15 @@ export const createReview = async (review) => {
     return response.data;
 }
 
-// export const findTuits = async () => {
-//     const response = await axios.get(GAMES_API);
-//     return response.data;
-// }
-// export const deleteTuit = async (tid) => {
-//     const response = await axios.delete(`${GAMES_API}/${tid}`)
-//     return response.data
-// }
+export const findReviews = async (gid) => {
+    const response = await axios.get(`${GAMES_API}/${gid}`);
+    return response.data;
+}
+
+export const deleteReview = async (rid) => {
+    const response = await axios.delete(`${GAMES_API}/${rid}`)
+    return response.data
+}
 //
 // export const updateTuit = async (tuit) => {
 //     await axios.put(`${GAMES_API}/${tuit._id}`, tuit);

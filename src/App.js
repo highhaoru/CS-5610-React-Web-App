@@ -8,12 +8,14 @@ import NavbarContent from "./nav";
 import SearchComponent from "./igdb";
 import {Provider} from "react-redux";
 import igdbReducer from "./igdb/igdb-reducer";
+import reviewsReducer from "./details/reviews-reducer"
 import DetailComponent from "./details/detail";
 
 
 const store = configureStore({
     reducer: {
         igdb: igdbReducer,
+        reviews: reviewsReducer
     }
 })
 

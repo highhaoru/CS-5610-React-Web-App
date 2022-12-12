@@ -24,12 +24,17 @@ const ReviewItem = (
     return(
 
         <li className="list-group-item">
-            <div className="row">
-                <div>Username</div>
-                <div> Stars</div>
-                <div> time</div>
+            <div className="d-flex flex-row justify-content-between">
+                <div className="d-flex flex-row justify-content-start">
+                    <div className="d-flex">{post.userName}</div>
+                    <div className="d-flex ms-2">{post.stars} Stars</div>
+                    <div className="d-flex ms-2">{post.time}</div>
+                </div>
+
+                <i className="bi bi-x-lg float-end"
+                   onClick={() => deleteReviewHandler(post._id)}></i>
             </div>
-            <div>
+            <div className="mt-2">
                 <p>{post.content}</p>
             </div>
         </li>

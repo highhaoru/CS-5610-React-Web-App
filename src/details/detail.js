@@ -20,7 +20,7 @@ function DetailComponent() {
             <div>Name: {game.Title}</div>
             <div>Release year{game.Year}</div>
             <NewReview gid={gameId}/>
-            <ReviewList/>
+            <ReviewList gid={gameId}/>
         </div>
     );
 }

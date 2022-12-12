@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {deleteReviewThunk, findReviewsThunk} from "../services/review-thunks";
+import {createReviewThunk, deleteReviewThunk, findReviewsThunk} from "../services/review-thunks";
 
 const currentUser = {
     "userName": "Iron Man",
@@ -21,14 +21,13 @@ const initialState = {
     loading: false
 }
 
-
 const reviewsSlice = createSlice({
     name: 'reviews',
     initialState: initialState,
     extraReducers: {
         [findReviewsThunk.pending]: (state) => {
             state.loading = true
-            state.tuits = []
+            state.reviews = []
         },
         [findReviewsThunk.fulfilled]: (state, {payload}) => {
             state.loading = false
@@ -39,12 +38,12 @@ const reviewsSlice = createSlice({
         },
         [deleteReviewThunk.fulfilled]: (state, {payload}) => {
             state.loading = false
-            state.tuits = state.tuits.filter(t => t._id !== payload)
+            state.reviews = state.reviews.filter(t => t._id !== payload)
         },
-        // [createTuitThunk.fulfilled]: (state, {payload}) => {
-        //     state.loading = false
-        //     state.tuits.unshift(payload)
-        // },
+        [createReviewThunk.fulfilled]: (state, {payload}) => {
+            state.loading = false
+            state.reviews.unshift(payload)
+        },
         // [updateTuitThunk.fulfilled]: (state, {payload}) => {
         //     state.loading = false
         //     const tuitIndex = state.tuits.findIndex(t => t._id === payload._id)

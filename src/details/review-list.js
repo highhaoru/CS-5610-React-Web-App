@@ -1,10 +1,16 @@
-import React from "react";
-import {useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import ReviewItem from "./review-item";
+import {findReviewsThunk} from "../services/review-thunks";
 
-const ReviewList = () => {
+const ReviewList = ({gid}) => {
     const {reviews, loading} = useSelector(state => state.reviews)
     // console.log(reviews)
+    // console.log({gid})
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(findReviewsThunk(gid))
+    }, [])
     return(
         <>
             <h4>Top reviews</h4>

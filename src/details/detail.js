@@ -1,6 +1,9 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {json, useParams, useLocation} from "react-router-dom";
+import {useParams, useLocation} from "react-router-dom";
+
+import NewReview from "./newReview";
+import ReviewList from "./reviewList";
+
 
 
 function DetailComponent() {
@@ -16,7 +19,8 @@ function DetailComponent() {
             <img src={`${game.Poster}`}/>
             <div>Name: {game.Title}</div>
             <div>Release year{game.Year}</div>
-
+            <NewReview gid={gameId}/>
+            <ReviewList/>
         </div>
     );
 }

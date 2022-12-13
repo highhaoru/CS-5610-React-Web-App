@@ -1,6 +1,7 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 import {deleteReviewThunk} from "../services/review-thunks";
+import {useNavigate} from "react-router-dom";
 
 const ReviewItem = (
     {
@@ -17,18 +18,23 @@ const ReviewItem = (
     }
 ) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const deleteReviewHandler = (id) => {
         dispatch(deleteReviewThunk(id));
     }
-
+    const publicProfileHandler = (uid) => {
+        navigate('/profile/'+`${uid}`)
+    }
     return(
 
         <li className="list-group-item">
             <div className="d-flex flex-row justify-content-between">
                 <div className="d-flex flex-row justify-content-start">
-                    <div className="d-flex">{post.userName}</div>
+                    <a href="" className="d-flex"
+                       onClick={() => publicProfileHandler(post.uid)}
+                    >{post.userName}</a>
                     <div className="d-flex ms-2">{post.stars} Stars</div>
-                    <div className="d-flex ms-2">{post.time}</div>
+                    <div className="d-flex ms-2">posted at {post.time}</div>
                 </div>
 
                 <i className="bi bi-x-lg float-end"

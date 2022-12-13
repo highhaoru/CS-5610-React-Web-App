@@ -21,7 +21,7 @@ const ReviewList = ({gid}) => {
                 </li>
             }
             {
-                <ul className="list-group">
+                <ul className="list-group mt-3">
                     {
                         reviews.map(post =>
                             <ReviewItem

@@ -18,12 +18,14 @@ import usersReducer from "./users/user-reducer"
 import DetailComponent from "./details/detail";
 
 import CurrentUser from "./users/current-user";
+import groupReducer from "./details/group-reducer";
 
 const store = configureStore({
     reducer: {
         igdb: igdbReducer,
         reviews: reviewsReducer,
-        users: usersReducer
+        users: usersReducer,
+        group:groupReducer
     }
 })
 

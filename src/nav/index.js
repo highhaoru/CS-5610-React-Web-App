@@ -48,7 +48,10 @@ function NavbarContent() {
                     <button className={`${currentUser ? 'd-none': ''} btn btn-primary me-2 `}>
                         <a className="nav-link" href="/register">Get Started</a>
                     </button>
-                    <i className={`${!currentUser ? 'd-none': ''} bi bi-person-fill`}>Profile</i>
+                    <a className={`${currentUser ? '': 'd-none'}`} href="/profile">
+                        <i className={` bi bi-person-fill pe-2`}> Profile</i>
+                    </a>
+
                 </div>
             </nav>
             <div className="col-2 p-0"></div>

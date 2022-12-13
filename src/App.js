@@ -1,7 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-// import Home from "./home";
+import Home from "./home";
 import Login from "./login";
 import Register from "./register";
 import More from "./privacy";
@@ -29,8 +29,8 @@ function App() {
                     <NavbarContent/>
                     <Routes>
 
-                        {/*<Route index path="/*" element={<Home/>}/>*/}
-                        {/*<Route path="/home/*" element={<Home/>}/>*/}
+                        <Route index path="/*" element={<Home/>}/>
+                        <Route path="/home/*" element={<Home/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/search" element={<SearchComponent/>}/>

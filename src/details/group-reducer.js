@@ -1,10 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findJoinedThunk, joinGroupThunk} from "../services/group-thunks";
+import {checkJoinedThunk, findJoinedThunk, joinGroupThunk} from "../services/group-thunks";
 
 const groupReducer = createSlice({
     name: 'group',
     initialState: {
-        joined: []
+        joined: [],
+        joinedThis: null,
     },
     extraReducers: {
         [joinGroupThunk.fulfilled]: (state, {payload}) => {
@@ -12,6 +13,12 @@ const groupReducer = createSlice({
         },
         [findJoinedThunk.fulfilled]: (state, {payload}) => {
             state.joined = payload
+        },
+        [checkJoinedThunk.fulfilled]: (state, {payload}) => {
+            state.joinedThis = payload
+        },
+        [checkJoinedThunk.rejected]: (state) => {
+            state.joinedThis = null
         },
     }
 })

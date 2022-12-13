@@ -17,7 +17,13 @@ export const joinGroup = async (toJoin) => {
 //     return response.data;
 // }
 export const findJoined = async (uid) => {
-    const response = await axios.get(`${USER_API_URL}/${uid}`);
+    const response = await axios.get(`${GROUP_API}/${uid}`);
+    return response.data;
+}
+export const checkJoined = async (toJoin) => {
+    const uid = toJoin.uid;
+    const gid = toJoin.gid;
+    const response = await axios.get(`${GROUP_API}/${uid}/${gid}`)
     return response.data;
 }
 //

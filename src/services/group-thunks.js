@@ -11,19 +11,22 @@ export const findJoinedThunk  = createAsyncThunk(
     'group/findJoined',
     async (user) => await service.findJoined(user)
 )
-
+export const checkJoinedThunk  = createAsyncThunk(
+    'group/checkJoined',
+    async (check) => await service.checkJoined(check)
+)
 // export const createReviewThunk = createAsyncThunk(
 //     'reviews/createReview',
 //     async (post) => {
 //         return await service.createReview(post)
 //     }
 // )
+
 // export const checkJoinedThunk = createAsyncThunk(
 //     'group/checkJoined',
 //     async (gid) => {
 //         await service.checkJoined(gid)
 //     })
-
 
 // export const deleteReviewThunk = createAsyncThunk(
 //     'reviews/deleteReview',

@@ -1,22 +1,20 @@
-import {useDispatch, useSelector} from "react-redux";
-import {getUserState} from "../redux/selectors";
 import {useState} from "react";
-import {login} from "../redux/actions";
 import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {register} from "../redux/actions";
 
-const Login = () => {
+const Index = () => {
     let [userCredential, setUserCredential] = useState({});
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const loginButtonOnClick = () => {
-        login(dispatch, userCredential)
+    const registerButtonOnClick = () => {
+        register(dispatch, userCredential)
             .then(() => navigate("/home"))
             .catch(err => alert(err.response.data.error));
     }
     return (
         <div>
-            <h1>Login</h1>
-
+            <h1>Register</h1>
             <label className={"form-label"}>
                 Username:
                 <input className={"form-control"} type={"text"}
@@ -29,10 +27,9 @@ const Login = () => {
                        onChange={(e) =>
                            setUserCredential({...userCredential, password: e.target.value})}/>
             </label>
-            <button className={"btn btn-primary"} onClick={loginButtonOnClick}>Login</button>
-            {/*<button className={"btn btn-primary float-end"} onClick={loginButtonOnClick}>*/}
-            {/*    <a className="nav-link" href="/register">Register</a></button>*/}
+            <button className={"btn btn-primary"}
+                    onClick={registerButtonOnClick}>Register</button>
         </div>
     )
 };
-export default Login;
+export default Index;

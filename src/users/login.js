@@ -1,44 +1,74 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {loginThunk, registerThunk} from "./users-thunks";
+import {loginThunk, registerThunk} from "../services/users-thunks";
+import {Navigate} from "react-router";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
-    const [username, setUsername] = useState('dan')
-    const [password, setPassword] = useState('dan123')
-    const [error, setError] = useState(null)
     const {currentUser} = useSelector((state) => state.users)
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState(null)
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const handleLoginBtn = () => {
-        setError(null)
-        const loginUser = {username, password}
-        dispatch(loginThunk(loginUser))
+        try {
+            dispatch(loginThunk({username, password}))
+            // navigate('/profile')
+        } catch (e) {
+
+        }
+    }
+    const handleRegister = () => {
+        navigate('/register')
+    }
+    if (currentUser) {
+        return (<Navigate to={'/profile'}/>)
     }
     return(
         <>
-            <h1>Login</h1>
+            <h1 className="d-flex justify-content-center">Login</h1>
             {
                 error &&
                 <div className="alert alert-danger">
                     {error}
                 </div>
             }
-            <input
-                className="form-control mb-2"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}/>
-            <input
-                className="form-control mb-2"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}/>
-            <button
-                onClick={handleLoginBtn}
-                className="btn btn-primary w-100">
-                Login
-            </button>
-            {
-                currentUser &&
-                <h2>Welcome {currentUser.username}</h2>
-            }
+            <div className="container" style={{width:400}}>
+                Username:
+                <input
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="form-control "
+                    placeholder="username"
+                    value={username}/>
+                Password:
+                <input
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="form-control"
+                    placeholder="password"
+                    type="password"
+                    value={password}/>
+                <div className="d-flex justify-content-center">
+                    <div className="d-flex flex-row align-self-center ms-2">Don't have an account?
+                        <a className="d-flex justify-content-center  ms-2" onClick={handleRegister}>
+                            SignUp</a></div>
+                </div>
+                <div className="d-flex justify-content-center">
+                    <button
+                        className="btn btn-primary mt-2 d-flex justify-content-center"
+                        onClick={handleLoginBtn}>
+                        Login
+                    </button>
+                </div>
+
+
+            </div>
+
+
+            {/*{*/}
+            {/*    currentUser &&*/}
+            {/*    <h2>Welcome {currentUser.username}</h2>*/}
+            {/*}*/}
         </>
     )
 }

@@ -18,9 +18,7 @@ const GamePopularCard = (
     return (
         <li className="row mt-4, d-inline" onClick={(e)=>{
             navigate('/search/'+ game.imdbID, {state: game})
-            // console.log()
         }}>
-            <div className="col-2"></div>
             <div className="col-2">
                 <img src={`${game.Poster}`} style={{height:240,width:180}}/>
             </div>

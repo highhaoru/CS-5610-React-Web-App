@@ -12,13 +12,16 @@ const Home = () => {
             {loggedIn && `Show content for a logged-in user: ${username}`}
             {!loggedIn &&
              <>
+                 <SearchBar/>
+
                  <h1>Popular Games</h1>
-                 {/*<GameComponent/>*/}
-                 <SearchBar/>
+                 <GameComponent/>
                  <h1>Recent Review</h1>
-                 <SearchBar/>
+                 <GameComponent/>
+                 {/*<SearchBar/>*/}
                  <h1>Top Rated</h1>
-                 <SearchBar/>
+                 {/*<SearchBar/>*/}
+                 <GameComponent/>
 
              </>
             }

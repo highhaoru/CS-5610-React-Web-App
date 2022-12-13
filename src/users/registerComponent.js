@@ -5,7 +5,7 @@ import {Navigate} from "react-router";
 import {useNavigate} from "react-router-dom";
 
 
-const Register = () => {
+const RegisterComponent = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(null)
@@ -59,4 +59,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default RegisterComponent

@@ -1,11 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {useLocation} from "react-router";
+import {useSelector} from "react-redux";
 // import { Container, Nav, Navbar } from 'react-bootstrap';
 
 
 
 function NavbarContent() {
+    const {currentUser} = useSelector((state) => state.users)
     const {pathname} = useLocation();
     const paths = pathname.split('/')
     const active = paths[2];
@@ -31,21 +33,22 @@ function NavbarContent() {
                         <li className="nav-item">
                             <a className="nav-link" href="/search">Search</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/profile">Profile</a>
-                        </li>
+                        {/*<li className="nav-item">*/}
+                        {/*    <a className="nav-link" href="/profile">Profile</a>*/}
+                        {/*</li>*/}
                         <li className="nav-item">
                             <a className="nav-link" href="/privacy">More</a>
                         </li>
                     </ul>
                 </div>
                 <div className="float-end">
-                    <button className="btn btn-secondary me-2">
+                    <button className={`btn btn-secondary me-2 ${currentUser ? 'd-none': ''}`}>
                         <a className="nav-link" href="/login">login</a>
                     </button>
-                    <button className="btn btn-primary me-2">
+                    <button className={`${currentUser ? 'd-none': ''} btn btn-primary me-2 `}>
                         <a className="nav-link" href="/register">Get Started</a>
                     </button>
+                    <i className={`${!currentUser ? 'd-none': ''} bi bi-person-fill`}>Profile</i>
                 </div>
             </nav>
             <div className="col-2 p-0"></div>

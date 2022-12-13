@@ -3,7 +3,7 @@ import {logoutThunk} from "../services/users-thunks";
 import {useNavigate} from "react-router-dom";
 import {Navigate} from "react-router";
 
-const Profile = () => {
+const ProfileComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -29,4 +29,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default ProfileComponent

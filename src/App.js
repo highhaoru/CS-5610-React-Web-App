@@ -2,8 +2,8 @@ import {configureStore} from "@reduxjs/toolkit";
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./home";
-import Login from "./users/login";
-import Register from "./users/register";
+import LoginComponent from "./users/loginComponent";
+import RegisterComponent from "./users/registerComponent";
 import More from "./privacy";
 import './App.css';
 import NavbarContent from "./nav";
@@ -14,7 +14,7 @@ import reviewsReducer from "./details/reviews-reducer"
 import usersReducer from "./users/user-reducer"
 // import userReducer from "./users/user-reducer";
 import DetailComponent from "./details/detail";
-import Profile from "./users/profile";
+import ProfileComponent from "./users/profileComponent";
 import CurrentUser from "./users/current-user";
 
 
@@ -37,9 +37,9 @@ function App() {
 
                             <Route index path="/*" element={<Home/>}/>
                             <Route path="/home/*" element={<Home/>}/>
-                            <Route path="/login" element={<Login/>}/>
-                            <Route path="/register" element={<Register/>}/>
-                            <Route path="/profile" element={<Profile/>}/>
+                            <Route path="/login" element={<LoginComponent/>}/>
+                            <Route path="/register" element={<RegisterComponent/>}/>
+                            <Route path="/profile" element={<ProfileComponent/>}/>
                             <Route path="/search" element={<SearchComponent/>}/>
                             <Route path="/search/:gid" element={<DetailComponent/>}/>
                             <Route path="/privacy" element={<More/>}/>

@@ -4,7 +4,7 @@ import {loginThunk, registerThunk} from "../services/users-thunks";
 import {Navigate} from "react-router";
 import {useNavigate} from "react-router-dom";
 
-const Login = () => {
+const LoginComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -73,4 +73,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default LoginComponent

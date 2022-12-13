@@ -3,6 +3,8 @@ import {configureStore} from "@reduxjs/toolkit";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 // import Home from "./home";
 import Login from "./login";
+import Register from "./register";
+import More from "./privacy";
 import './App.css';
 import NavbarContent from "./nav";
 import SearchComponent from "./igdb";
@@ -30,8 +32,10 @@ function App() {
                         {/*<Route index path="/*" element={<Home/>}/>*/}
                         {/*<Route path="/home/*" element={<Home/>}/>*/}
                         <Route path="/login" element={<Login/>}/>
+                        <Route path="/register" element={<Register/>}/>
                         <Route path="/search" element={<SearchComponent/>}/>
                         <Route path="/search/:gid" element={<DetailComponent/>}/>
+                        <Route path="/privacy" element={<More/>}/>
                     </Routes>
                 </BrowserRouter>
             </Provider>

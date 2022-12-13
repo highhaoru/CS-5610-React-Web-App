@@ -35,13 +35,16 @@ function NavbarContent() {
                             <a className="nav-link" href="/profile">Profile</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/more">More</a>
+                            <a className="nav-link" href="/privacy">More</a>
                         </li>
                     </ul>
                 </div>
                 <div className="float-end">
                     <button className="btn btn-outline-secondary me-2">
-                        <a className="nav-link" href="/login">login / register</a>
+                        <a className="nav-link" href="/login">login</a>
+                    </button>
+                    <button className="btn btn-outline-secondary me-2">
+                        <a className="nav-link" href="/register">register</a>
                     </button>
                     <button className="btn btn-primary">Get Started</button>
                 </div>

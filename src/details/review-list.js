@@ -11,6 +11,7 @@ const ReviewList = ({gid}) => {
     useEffect(() => {
         dispatch(findReviewsThunk(gid))
     }, [])
+
     return(
         <>
             <h4>Top reviews</h4>

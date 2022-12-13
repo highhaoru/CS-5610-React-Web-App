@@ -2,28 +2,33 @@ import {useSelector} from "react-redux";
 import {getUserName, isLoggedIn} from "./selectors";
 import GameComponent from "./home-component";
 import SearchBar from "../igdb/searchBar";
+import RecentReviews from "./recent-reviews";
 // import * as movieServices from "../../services/movieServices";
 
 const Home = () => {
-    const loggedIn = useSelector(isLoggedIn);
-    const username = useSelector(getUserName);
+    const {currentUser} = useSelector((state) => state.users)
     return (
+
         <div className="">
-            {loggedIn && `Show content for a logged-in user: ${username}`}
-            {!loggedIn &&
-             <>
-                 <SearchBar/>
-
-                 <h1>Popular Games</h1>
-                 <GameComponent/>
-                 <h1>Recent Review</h1>
-                 <GameComponent/>
-                 {/*<SearchBar/>*/}
-                 <h1>Top Rated</h1>
-                 {/*<SearchBar/>*/}
-                 <GameComponent/>
-
-             </>
+            <img className="w-100" src="/images/meta-gs.png"></img>
+            <SearchBar/>
+            <RecentReviews/>
+            {
+                currentUser &&
+                <h1>Welcome, {currentUser.username}!</h1>
+            }
+            {
+                currentUser &&
+                 <>
+                     <h2>Popular Games</h2>
+                     <GameComponent/>
+                     <h2>Recent Review</h2>
+                     <GameComponent/>
+                     {/*<SearchBar/>*/}
+                     <h2>Top Rated</h2>
+                     {/*<SearchBar/>*/}
+                     <GameComponent/>
+                 </>
             }
         </div>
     )

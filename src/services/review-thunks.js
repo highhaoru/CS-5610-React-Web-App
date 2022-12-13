@@ -5,7 +5,10 @@ export const findReviewsThunk  = createAsyncThunk(
     'reviews/findReviews',
     async (gid) => await service.findReviews(gid)
 )
-
+export const findRecentReviewsThunk  = createAsyncThunk(
+    'reviews/findReviews',
+    async () => await service.findRecentReviews()
+)
 export const createReviewThunk = createAsyncThunk(
     'reviews/createReview',
     async (post) => {

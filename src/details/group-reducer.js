@@ -8,9 +8,9 @@ const groupReducer = createSlice({
         joinedThis: null,
     },
     extraReducers: {
-        [joinGroupThunk.fulfilled]: (state, {payload}) => {
-            state.joined.push(payload)
-        },
+        // [joinGroupThunk.fulfilled]: (state, {payload}) => {
+        //     state.joined.push(payload)
+        // },
         [findJoinedThunk.fulfilled]: (state, {payload}) => {
             state.joined = payload
         },

@@ -1,9 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit";
-
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./home";
+
 import LoginComponent from "./users/loginComponent";
 import RegisterComponent from "./users/registerComponent";
+import ProfileComponent from "./users/profileComponent";
+
 import More from "./privacy";
 import './App.css';
 import NavbarContent from "./nav";
@@ -14,9 +16,8 @@ import reviewsReducer from "./details/reviews-reducer"
 import usersReducer from "./users/user-reducer"
 // import userReducer from "./users/user-reducer";
 import DetailComponent from "./details/detail";
-import ProfileComponent from "./users/profileComponent";
-import CurrentUser from "./users/current-user";
 
+import CurrentUser from "./users/current-user";
 
 const store = configureStore({
     reducer: {
@@ -31,6 +32,7 @@ function App() {
         <div className="container-extend-lg">
             <Provider store={store}>
                 <BrowserRouter>
+
                     <CurrentUser>
                         <NavbarContent/>
                         <Routes>
@@ -50,8 +52,6 @@ function App() {
             </Provider>
 
         </div>
-
-
   );
 }
 

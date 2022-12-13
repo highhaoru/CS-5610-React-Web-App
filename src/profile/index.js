@@ -4,7 +4,6 @@ import {useSelector} from "react-redux";
 
 const ProfileComponent = () => {
     const me = useSelector(state => state.profile)
-    console.log(me)
     return(
         <>
             <i className="bi bi-arrow-left-short fs-2 float-start"></i>

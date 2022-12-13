@@ -6,21 +6,22 @@ import GamePopularCard from "./home-card";
 function GameListComponent() {
     const {games, loading} = useSelector((state) => state.igdb)
     return(
-        <div className="d-flex flex-row">
+        <div className="d-flex flex-row padding-right">
             {/*{*/}
             {/*    !loading &&*/}
             {/*    <li className="list-group-item">*/}
             {/*        Loading...*/}
             {/*    </li>*/}
             {/*}*/}
+
+            {/*{*/}
+            {/*    games &&*/}
+            {/*    <div>*/}
+            {/*        No results, please enter a name*/}
+            {/*    </div>*/}
+            {/*}*/}
             {
-                !games &&
-                <div>
-                    No results, please enter a name
-                </div>
-            }
-            {
-                games && games.map((game) =>
+                games && games.slice(0,7).map((game) =>
                                        <GamePopularCard key={game.imdbID} game={game}/>
                                    // <li key={game.imdbID} className="list-group-item">
                                    //     {game.Title}
@@ -28,7 +29,6 @@ function GameListComponent() {
                                    // </li>
                       )
             }
-
 
 
 

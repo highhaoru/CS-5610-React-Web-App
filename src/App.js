@@ -21,6 +21,8 @@ import DetailComponent from "./details/detail";
 import CurrentUser from "./users/current-user";
 import groupReducer from "./details/group-reducer";
 import recentReviews from "./home/recent-reviews";
+import ProtectedRoute from "./users/protected-route";
+import PublicProfile from "./users/public-profile";
 
 const store = configureStore({
     reducer: {
@@ -46,7 +48,12 @@ function App() {
                             <Route path="/home/*" element={<Home/>}/>
                             <Route path="/login" element={<LoginComponent/>}/>
                             <Route path="/register" element={<RegisterComponent/>}/>
-                            <Route path="/profile" element={<ProfileComponent/>}/>
+                            <Route path="/profile" element={
+                                <ProtectedRoute>
+                                    <ProfileComponent/>
+                                </ProtectedRoute>
+                            }/>
+                            <Route path="/profile/:uid" element={<PublicProfile/>}/>
                             <Route path="/search" element={<SearchComponent/>}/>
                             <Route path="/search/:gid" element={<DetailComponent/>}/>
                             <Route path="/privacy" element={<More/>}/>

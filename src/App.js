@@ -14,18 +14,21 @@ import {Provider} from "react-redux";
 import igdbReducer from "./igdb/igdb-reducer";
 import reviewsReducer from "./details/reviews-reducer"
 import usersReducer from "./users/user-reducer"
+import homeReducer from "./home/home-reducer";
 // import userReducer from "./users/user-reducer";
 import DetailComponent from "./details/detail";
 
 import CurrentUser from "./users/current-user";
 import groupReducer from "./details/group-reducer";
+import recentReviews from "./home/recent-reviews";
 
 const store = configureStore({
     reducer: {
         igdb: igdbReducer,
         reviews: reviewsReducer,
         users: usersReducer,
-        group:groupReducer
+        group:groupReducer,
+        home: homeReducer
     }
 })
 

@@ -3,7 +3,7 @@ import {configureStore} from "@reduxjs/toolkit";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./home";
 import Login from "./login";
-import Register from "./register";
+import Register from "./users/register";
 import More from "./privacy";
 import './App.css';
 import NavbarContent from "./nav";
@@ -11,13 +11,16 @@ import SearchComponent from "./igdb";
 import {Provider} from "react-redux";
 import igdbReducer from "./igdb/igdb-reducer";
 import reviewsReducer from "./details/reviews-reducer"
+import usersReducer from "./users/user-reducer"
+// import userReducer from "./users/user-reducer";
 import DetailComponent from "./details/detail";
 
 
 const store = configureStore({
     reducer: {
         igdb: igdbReducer,
-        reviews: reviewsReducer
+        reviews: reviewsReducer,
+        users: usersReducer
     }
 })
 

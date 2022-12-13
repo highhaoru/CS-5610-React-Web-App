@@ -8,7 +8,7 @@ const Home = () => {
     const loggedIn = useSelector(isLoggedIn);
     const username = useSelector(getUserName);
     return (
-        <div className={"col-12"}>
+        <div className="">
             {loggedIn && `Show content for a logged-in user: ${username}`}
             {!loggedIn &&
              <>

@@ -16,14 +16,14 @@ const GamePopularCard = (
     const navigate = useNavigate();
 
     return (
-        <li className="row mt-4, d-inline" onClick={(e)=>{
+        <li className="d-flex flex-column m-4 d-inline" style={{maxWidth:180}} onClick={(e)=>{
             navigate('/search/'+ game.imdbID, {state: game})
         }}>
-            <div className="col-2">
+            <div className="">
                 <img src={`${game.Poster}`} style={{height:240,width:180}}/>
             </div>
 
-            <div className="col-8 col">
+            <div className="">
                 <h4>{game.Title}</h4>
                 {game.Year}
             </div>

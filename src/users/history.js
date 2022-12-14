@@ -18,9 +18,9 @@ const HistoryComponent = ({uid}) => {
             <h2>Recent Viewed</h2>
             <div className="list-group">
                 {
-                    history && history.map((history) =>
+                    history && history.map((post) =>
                         // <li>{history.Card}</li>
-                        <HistoryCard key={history.hID}/>
+                        <HistoryCard key={post.hID} history={history.hID}/>
                     )
                 }
             </div>

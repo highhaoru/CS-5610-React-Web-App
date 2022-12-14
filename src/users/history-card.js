@@ -26,7 +26,8 @@ const HistoryCard = (
 
             <div className="">
                 <h4>{history.Title}</h4>
-                {history.Year}
+                Viewed at<br></br>
+                {history.Viewed}
             </div>
         </li>
     );

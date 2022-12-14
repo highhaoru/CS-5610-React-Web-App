@@ -19,10 +19,11 @@ const ProfileComponent = () => {
     }
     return(
         <>
+            <div className="row position-relative">
             <img className="w-100 " src="/images/banner.jpg" alt="banner"/>
             <img src="/images/hao.jpg" alt={"avatar"}
                  className="rounded-circle w-25 float-left ms-3 position-relative top-0 translate-middle-y"/>
-
+            </div>
             {
                 currentUser &&
                 <h2>Welcome {currentUser.username}</h2>
@@ -31,6 +32,7 @@ const ProfileComponent = () => {
                 <button
                     className="btn border-secondary rounded-pill float-end me-3 mt-3">Edit profile</button>
             </Link>
+
             <button className="btn btn-danger border-secondary rounded-pill float-end me-3 mt-3"
                     onClick={handleLogoutBtn}>
                 Logout

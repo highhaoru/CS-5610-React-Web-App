@@ -31,15 +31,18 @@ const ProfileCard = (
                 <img src="/images/hao.jpg" style={{height:180,width:180}}/>
             </div>
 
-            <div className="text-decoration-none ">
-                <h4>{me.nickName}</h4>
-                <li>bio: {me.bio}</li>
-                <li>website: {me.website}</li>
-                <li>Location: {me.location}</li>
-                <li>Date Joined: {me.dateJoined}</li>
-                <li>DOB: {me.dateOfBirth}</li>
-                <li>Followers Count:{me.followersCount}</li>
-                <li>Following Count: {me.followingCount}</li>
+            <div className="text-decoration-none">
+                <ul class="list-unstyled">
+                    <h4>{me.nickName}</h4>
+                    <li>bio: {me.bio}</li>
+                    <li>website: {me.website}</li>
+                    <li>Location: {me.location}</li>
+                    <li>Date Joined: {me.dateJoined}</li>
+                    <li>DOB: {me.dateOfBirth}</li>
+                    <li>Followers Count:{me.followersCount}</li>
+                    <li>Following Count: {me.followingCount}</li>
+                </ul>
+
             </div>
         </li>
     );

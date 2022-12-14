@@ -2,14 +2,15 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 
 
-const GamePopularCard = (
+const HistoryCard = (
     {
-        game = {
-            "Title": "Halo",
-            "Year": "2022–",
-            "imdbID": "tt2934286",
+        history = {
+            "Title": "Halo 3",
+            "Year": "2027",
+            "hID": "tt2934286",
             "Type": "series",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BYmY5YmJiM2QtNjdhOC00NjRhLTgyNDEtYmM1NmJhNjc5NDE2XkEyXkFqcGdeQXVyMjQ4ODcxNTM@._V1_SX300.jpg"
+            "Poster": "https://m.media-amazon.com/images/M/MV5BYmY5YmJiM2QtNjdhOC00NjRhLTgyNDEtYmM1NmJhNjc5NDE2XkEyXkFqcGdeQXVyMjQ4ODcxNTM@._V1_SX300.jpg",
+            "Viewed": "2019-02-02T00:00:00.000+00:00"
         }
     }
 ) =>{
@@ -17,17 +18,17 @@ const GamePopularCard = (
 
     return (
         <li className="d-flex flex-column m-4 d-inline" style={{maxWidth:180}} onClick={(e)=>{
-            navigate('/search/'+ game.imdbID, {state: game})
+            navigate('/search/'+ history.hID, {state: history})
         }}>
             <div className="">
-                <img src={`${game.Poster}`} style={{height:240,width:180}}/>
+                <img src={`${history.Poster}`} style={{height:240,width:180}}/>
             </div>
 
             <div className="">
-                <h4>{game.Title}</h4>
-                {game.Year}
+                <h4>{history.Title}</h4>
+                {history.Year}
             </div>
         </li>
     );
 };
-export default GamePopularCard;
+export default HistoryCard;

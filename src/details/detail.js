@@ -16,7 +16,6 @@ function DetailComponent() {
     const location = useLocation();
     const gameId = params.gid;
     const game = location.state;
-    const navigate = useNavigate()
     const dispatch = useDispatch();
 
 
@@ -34,24 +33,14 @@ function DetailComponent() {
                 gid:gameId.toString(),
                 game:{name:game.Title.toString()}
             }));
-        // dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
     }
     if (!currentUser) {
         return (<Navigate to={'/login'}/>)
-        // navigate('/login')
     }
 
     return(
         <div className="container">
-            {/*{*/}
-            {/*    joined && joined.map((game) =>*/}
-            {/*            <GameCard key={game}/>*/}
-            {/*        // <li key={game.imdbID} className="list-group-item">*/}
-            {/*        //     {game.Title}*/}
-            {/*        //     <img src={game.Poster}></img>*/}
-            {/*        // </li>*/}
-            {/*    )*/}
-            {/*}*/}
+
             <div className="d-flex flex-row justify-content-evenly mt-3">
                 <div>
                     <img src={`${game.Poster}`}/>

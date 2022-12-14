@@ -4,9 +4,10 @@ import {useParams, useLocation} from "react-router-dom";
 import NewReview from "./new-review";
 import ReviewList from "./review-list";
 import {useDispatch, useSelector} from "react-redux";
-import {checkJoinedThunk, findJoinedThunk, joinGroupThunk} from "../services/group-thunks";
-import {findReviewsThunk} from "../services/review-thunks";
-import GameCard from "../igdb/igdb-card";
+
+import {checkJoinedThunk, joinGroupThunk} from "../services/group-thunks";
+import {Navigate} from "react-router";
+
 
 function DetailComponent() {
     const {joinedThis} = useSelector(state => state.group)
@@ -15,17 +16,31 @@ function DetailComponent() {
     const location = useLocation();
     const gameId = params.gid;
     const game = location.state;
+
     const dispatch = useDispatch();
-    const joinGroupHandler = () => {
-        dispatch(joinGroupThunk({uid: currentUser._id, gid:gameId.toString()}));
-        dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
-    }
+
+
     useEffect(() => {
         dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
     }, [])
 
 
+    if (!currentUser) {
+        return (<Navigate to={'/login'}/>)
+    }
     // console.log(joinedThis)
+    console.log(game.Title)
+    const joinGroupHandler = () => {
+        dispatch(joinGroupThunk(
+            {
+                uid: currentUser._id,
+                gid:gameId.toString(),
+                game:{name:game.Title.toString()}
+            }));
+        dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
+    }
+
+
     return(
         <div className="container">
             {/*{*/}

@@ -23,7 +23,7 @@ const ProfileCard = () =>{
                         <FontAwesomeIcon className="me-2" icon={faBirthdayCake}></FontAwesomeIcon>
                         {userProfile.dateOfBirth}</div>
                     <div className="ms-5">
-                        <FontAwesomeIcon className="me-2" icon={faCalendarAlt}></FontAwesomeIcon>
+                        Joined <FontAwesomeIcon className="me-2" icon={faCalendarAlt}></FontAwesomeIcon>
                         {userProfile.dateJoined}</div>
                 </div>
                 <div className="row mt-3">

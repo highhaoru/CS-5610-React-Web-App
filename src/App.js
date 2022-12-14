@@ -23,6 +23,8 @@ import groupReducer from "./details/group-reducer";
 import recentReviews from "./home/recent-reviews";
 import ProtectedRoute from "./users/protected-route";
 import PublicProfile from "./users/public-profile";
+import profileReducer from "./users/profile-reducer";
+import historyReducer from "./users/history-reducer";
 
 
 const store = configureStore({
@@ -31,7 +33,9 @@ const store = configureStore({
         reviews: reviewsReducer,
         users: usersReducer,
         group:groupReducer,
-        home: homeReducer
+        home: homeReducer,
+        profile: profileReducer,
+        history: historyReducer
     }
 })
 

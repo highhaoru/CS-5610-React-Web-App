@@ -4,12 +4,16 @@ import {Link, useNavigate} from "react-router-dom";
 import {Navigate} from "react-router";
 import React from "react";
 import ProfileCard from "./profile-card";
+import JoinedGroups from "./joined-groups";
 
 const ProfileComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
     const {user} = useSelector((state) => state.profile)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const uid = currentUser._id.toString()
+
     const handleLogoutBtn = () => {
         dispatch(logoutThunk())
         navigate('/login')
@@ -39,7 +43,7 @@ const ProfileComponent = () => {
             </button>
 
             <ProfileCard/>
-
+            <JoinedGroups uid={uid}/>
         </>
     )
 }

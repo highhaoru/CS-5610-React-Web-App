@@ -23,15 +23,17 @@ const ProfileCard = (
     const navigate = useNavigate();
 
     return (
-        <li className="row mt-4" onClick={(e)=>{
-            navigate('/search/'+ me.nickName, {state: me})
-        }}>
+        <li className="row mt-4"
+        //     onClick={(e)=>{
+        //     navigate('/search/'+ me.nickName, {state: me})
+        // }}
+        >
 
             <div className="col-2">
                 <img src="/images/hao.jpg" style={{height:180,width:180}}/>
             </div>
 
-            <div className="text-decoration-none container">
+            <div className="d-flex justify-content-center text-decoration-none container">
                 <ul class="list-unstyled">
                     <h4 className="col-4 display-6">{me.nickName}</h4>
                     <li><span className="col-4 fs-3 text-secondary text-white">

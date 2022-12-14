@@ -3,8 +3,6 @@ import {logoutThunk} from "../services/users-thunks";
 import {Link, useNavigate} from "react-router-dom";
 import {Navigate} from "react-router";
 import React from "react";
-import SearchBar from "../igdb/searchBar";
-import GameCard from "../igdb/igdb-card";
 import ProfileCard from "./profile-card";
 
 const ProfileComponent = () => {

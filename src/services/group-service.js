@@ -9,7 +9,8 @@ const USER_API_URL = 'http://localhost:4000/users';
 export const joinGroup = async (toJoin) => {
     const uid = toJoin.uid;
     const gid = toJoin.gid;
-    const response = await axios.post(`${GROUP_API}/${uid}/${gid}`)
+    const game = toJoin.game;
+    const response = await axios.post(`${GROUP_API}/${uid}/${gid}`, game)
     return response.data;
 }
 // export const createReview = async (review) => {

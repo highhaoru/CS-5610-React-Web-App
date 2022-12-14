@@ -22,6 +22,7 @@ const HistoryComponent = ({uid}) => {
                     history && history.map((post) =>
                         // <li>{history.Card}</li>
                         <HistoryCard history= {post}/>
+
                     )
                 }
             </div>

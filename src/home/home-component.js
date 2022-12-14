@@ -16,9 +16,6 @@ function GameListComponent() {
                                    // </li>
                       )
             }
-
-
-
         </div>
     );
 }

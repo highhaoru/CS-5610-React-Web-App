@@ -24,13 +24,14 @@ import recentReviews from "./home/recent-reviews";
 import ProtectedRoute from "./users/protected-route";
 import PublicProfile from "./users/public-profile";
 
+
 const store = configureStore({
     reducer: {
         igdb: igdbReducer,
         reviews: reviewsReducer,
         users: usersReducer,
         group:groupReducer,
-        home: homeReducer
+
     }
 })
 

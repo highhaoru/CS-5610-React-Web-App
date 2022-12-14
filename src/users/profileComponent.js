@@ -5,6 +5,7 @@ import {Navigate} from "react-router";
 import React from "react";
 import ProfileCard from "./profile-card";
 import JoinedGroups from "./joined-groups";
+import HistoryComponent from "./history";
 
 const ProfileComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
@@ -42,6 +43,7 @@ const ProfileComponent = () => {
 
             <ProfileCard/>
             <JoinedGroups uid={uid}/>
+            <HistoryComponent uid={uid}/>
         </>
     )
 }

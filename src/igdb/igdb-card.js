@@ -1,6 +1,9 @@
 import React from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import {createHistory} from "../services/history-service";
+import {createHistoryThunk} from "../services/history-thunks";
+
 
 
 const GameCard = (
@@ -14,13 +17,21 @@ const GameCard = (
         }
     }
 ) =>{
+    const {currentUser} = useSelector((state) => state.users)
+    const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const templateHistory = {
+        ...game,
+        "uid" : currentUser._id,
+        "gid" : game.imdbID,
+        "Viewed": Date.now()
+    }
+    const detailHandler = () =>{
+        dispatch(createHistoryThunk(templateHistory));
+        navigate('/search/'+ game.imdbID, {state: game});
+    }
     return (
-        <li className="row mt-4" onClick={(e)=>{
-            navigate('/search/'+ game.imdbID, {state: game})
-            // console.log()
-        }}>
+        <li className="row mt-4" onClick={detailHandler}>
             <div className="col-2"></div>
             <div className="col-2">
                 <img src={`${game.Poster}`} style={{height:240,width:180}}/>

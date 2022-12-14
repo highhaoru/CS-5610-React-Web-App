@@ -10,7 +10,7 @@ const ProfileCard = (
             "handle": "hao",
             "avatar": "hao.jpg",
             "banner": "banner.jpg",
-            "bio": "Master of Science in Computer Science, Graduate student of Northeastern University",
+            "bio": "You rather be my ally or my enermy!",
             "website": 'youtube.com/webdevtv',
             "location": "Boston, MA",
             "dateOfBirth": "1996-05-04",
@@ -31,15 +31,32 @@ const ProfileCard = (
                 <img src="/images/hao.jpg" style={{height:180,width:180}}/>
             </div>
 
-            <div className="text-decoration-none ">
-                <h4>{me.nickName}</h4>
-                <li>bio: {me.bio}</li>
-                <li>website: {me.website}</li>
-                <li>Location: {me.location}</li>
-                <li>Date Joined: {me.dateJoined}</li>
-                <li>DOB: {me.dateOfBirth}</li>
-                <li>Followers Count:{me.followersCount}</li>
-                <li>Following Count: {me.followingCount}</li>
+            <div className="text-decoration-none container">
+                <ul class="list-unstyled">
+                    <h4 className="col-4 display-6">{me.nickName}</h4>
+                    <li><span className="col-4 fs-3 text-secondary text-white">
+                        Bio: </span>
+                        {me.bio}</li>
+                    <li><span className="col-4 fs-3 text-secondary text-white">
+                        Website: </span>
+                        {me.website}</li>
+                    <li><span className="col-4 fs-3 text-secondary text-white">
+                        Location: </span>
+                        {me.location}</li>
+                    <li><span className="col-4 fs-3 text-secondary text-white">
+                        Date Joined: </span>
+                        {me.dateJoined}</li>
+                    <li><span className="col-4 fs-3 text-secondary text-white">
+                        DOB: </span>
+                        {me.dateOfBirth}</li>
+                    <li><span className="col-4 fs-3 text-secondary text-white">
+                        Followers Count: </span>
+                        {me.followersCount}</li>
+                    <li><span className="col-4 fs-3 text-secondary text-white">
+                        Following Count: </span>
+                        {me.followingCount}</li>
+                    <br></br>
+                </ul>
             </div>
         </li>
     );

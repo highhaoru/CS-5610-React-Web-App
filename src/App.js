@@ -31,7 +31,7 @@ const store = configureStore({
         reviews: reviewsReducer,
         users: usersReducer,
         group:groupReducer,
-
+        home: homeReducer
     }
 })
 
@@ -56,7 +56,11 @@ function App() {
                             }/>
                             <Route path="/profile/:uid" element={<PublicProfile/>}/>
                             <Route path="/search" element={<SearchComponent/>}/>
-                            <Route path="/search/:gid" element={<DetailComponent/>}/>
+                            <Route path="/search/:gid" element={
+                                <ProtectedRoute>
+                                    <DetailComponent/>
+                                </ProtectedRoute>
+                            }/>
                             <Route path="/privacy" element={<More/>}/>
                         </Routes>
                     </CurrentUser>

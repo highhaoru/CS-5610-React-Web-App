@@ -19,6 +19,10 @@ const ProfileComponent = () => {
         dispatch(logoutThunk())
         navigate('/login')
     }
+    const editProfileHandler = () => {
+
+        navigate('/edit-profile');
+    }
     if (!currentUser) {
         return (<Navigate to={'/login'}/>)
     }
@@ -29,23 +33,30 @@ const ProfileComponent = () => {
             <img src="/images/hao.jpg" alt={"avatar"}
                  className="rounded-circle w-25 float-left ms-3 position-relative top-0 translate-middle-y"/>
 
-            {
-                currentUser &&
-                <h2>Welcome {currentUser.username}</h2>
-            }
-            <Link to="/profile/edit-profile.js">
+
+            <div className="container">
+                {
+                    currentUser &&
+                    <h2>Welcome {currentUser.username}</h2>
+                }
+
                 <button
-                    className="btn border-secondary rounded-pill float-end me-3 mt-3">Edit profile</button>
-            </Link>
+                    className="btn border-secondary rounded-pill float-end me-3 mt-3"
+                    onClick={editProfileHandler}>
+                    Edit profile
+                </button>
 
-            <button className="btn btn-danger border-secondary rounded-pill float-end me-3 mt-3"
-                    onClick={handleLogoutBtn}>
-                Logout
-            </button>
 
-            <ProfileCard/>
-            <JoinedGroups uid={uid}/>
-            <HistoryComponent uid={uid}/>
+                <button className="btn btn-danger border-secondary rounded-pill float-end me-3 mt-3"
+                        onClick={handleLogoutBtn}>
+                    Logout
+                </button>
+                <ProfileCard/>
+                <br/><br/>
+                <JoinedGroups uid={uid}/>
+                <HistoryComponent uid={uid}/>
+            </div>
+
         </>
     )
 }

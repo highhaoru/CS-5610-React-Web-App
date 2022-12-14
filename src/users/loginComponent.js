@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {loginThunk, registerThunk} from "../services/users-thunks";
-import {Navigate} from "react-router";
+import {loginThunk} from "../services/users-thunks";
+import {Navigate, useHistory } from "react-router";
 import {useNavigate} from "react-router-dom";
 
 const LoginComponent = () => {

@@ -6,18 +6,30 @@ import {useNavigate} from "react-router-dom";
 
 
 const RegisterComponent = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [userName, setUserName] = useState('')
+    const [passWord, setPassWord] = useState('')
+    // const [create, setCreate] = useState('')
     const [error, setError] = useState(null)
     const {currentUser} = useSelector((state) => state.users)
     const dispatch = useDispatch()
-    const handleRegisterBtn = () => {
-        setError(null)
-        // console.log(currentUser)
-        dispatch(registerThunk({username, password}))
-    }
+
     if(currentUser) {
         return (<Navigate to={'/profile'}/>)
+    }
+    const templateUser = {
+        "role": "NORMAL",
+        "email": "zhou.to@northeastern.edu",
+        "nickName": "empty"
+    }
+    const handleRegisterBtn = () => {
+        setError(null)
+        const toCreate = {
+            ...templateUser,
+            username: userName,
+            password: passWord,
+        }
+        // console.log(toCreate)
+        dispatch(registerThunk(toCreate))
     }
     return(
         <>
@@ -31,16 +43,17 @@ const RegisterComponent = () => {
             <div className="container" style={{width:400}}>
                 Username:
                 <input
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => setUserName(e.target.value)}
                     className="form-control "
                     placeholder="username"
-                    value={username}/>
+                    value={userName}/>
                 Password:
                 <input
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassWord(e.target.value)}
                     className="form-control"
                     placeholder="password"
-                    value={password}/>
+                    type="password"
+                    value={passWord}/>
             </div>
             <div className="d-flex justify-content-center">
 

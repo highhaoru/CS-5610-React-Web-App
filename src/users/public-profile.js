@@ -35,7 +35,7 @@ const PublicProfile = () => {
             <div className="list-group">
                 {
                     joined && joined.map((group) =>
-                        <li>{group.joined}</li>
+                        <li>{group.gameName}</li>
                     )
                 }
             </div>

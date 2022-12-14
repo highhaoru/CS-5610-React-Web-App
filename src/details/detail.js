@@ -28,7 +28,12 @@ function DetailComponent() {
     // console.log(joinedThis)
     console.log(game.Title)
     const joinGroupHandler = () => {
-        dispatch(joinGroupThunk({uid: currentUser._id, gid:gameId.toString(), name:game.Title.toString()}));
+        dispatch(joinGroupThunk(
+            {
+                uid: currentUser._id,
+                gid:gameId.toString(),
+                game:{name:game.Title.toString()}
+            }));
         dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
     }
 

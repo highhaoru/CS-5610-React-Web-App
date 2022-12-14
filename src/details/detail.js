@@ -4,6 +4,7 @@ import LoginComponent from "../users/loginComponent";
 import NewReview from "./new-review";
 import ReviewList from "./review-list";
 import {useDispatch, useSelector} from "react-redux";
+
 import {checkJoinedThunk, joinGroupThunk} from "../services/group-thunks";
 import {Navigate} from "react-router";
 
@@ -17,6 +18,7 @@ function DetailComponent() {
     const game = location.state;
     const navigate = useNavigate()
     const dispatch = useDispatch();
+
 
     useEffect(() => {
         dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
@@ -38,6 +40,7 @@ function DetailComponent() {
         return (<Navigate to={'/login'}/>)
         // navigate('/login')
     }
+
     return(
         <div className="container">
             {/*{*/}

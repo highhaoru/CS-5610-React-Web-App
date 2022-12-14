@@ -1,13 +1,15 @@
 import {useDispatch, useSelector} from "react-redux";
 import {logoutThunk} from "../services/users-thunks";
-import {useNavigate} from "react-router-dom";
-import banner from "../../public/images/banner.jpg";
-import avatar from "../../public/images/hao.jpg";
+import {Link, useNavigate} from "react-router-dom";
 import {Navigate} from "react-router";
 import React from "react";
+import SearchBar from "../igdb/searchBar";
+import GameCard from "../igdb/igdb-card";
+import ProfileCard from "./profile-card";
 
 const ProfileComponent = () => {
     const {currentUser} = useSelector((state) => state.users)
+    const {user} = useSelector((state) => state.profile)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogoutBtn = () => {
@@ -19,23 +21,25 @@ const ProfileComponent = () => {
     }
     return(
         <>
-            <i className="bi bi-arrow-left-short fs-2 float-start"></i>
-            <div className="float-start ms-3">
-                <b>{currentUser.firstName} {currentUser.lastName}</b><br></br>
-                <span className="text-secondary">6,100 Tuits</span>
-            </div>
-            <img className="w-100 mt-2" src={banner} alt="banner"/>
-            <img src={avatar} alt={"avatar"}
+            <img className="w-100 " src="/images/banner.jpg" alt="banner"/>
+            <img src="/images/hao.jpg" alt={"avatar"}
                  className="rounded-circle w-25 float-left ms-3 position-relative top-0 translate-middle-y"/>
-            {/*<h1>Profile</h1>*/}
+
             {
                 currentUser &&
                 <h2>Welcome {currentUser.username}</h2>
             }
-            <button className="btn btn-danger"
+            <Link to="/profile/edit-profile.js">
+                <button
+                    className="btn border-secondary rounded-pill float-end me-3 mt-3">Edit profile</button>
+            </Link>
+            <button className="btn btn-danger border-secondary rounded-pill float-end me-3 mt-3"
                     onClick={handleLogoutBtn}>
                 Logout
             </button>
+
+            <ProfileCard/>
+
         </>
     )
 }

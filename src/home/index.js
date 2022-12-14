@@ -11,24 +11,32 @@ const Home = () => {
 
         <div className="">
             <img className="w-100" src="/images/meta-gs.png"></img>
-            <SearchBar/>
-            <RecentReviews/>
+            <div className="container-xxl">
+                <SearchBar/>
+                <RecentReviews/>
+                {
+                    currentUser &&
+                    <h1>Welcome, {currentUser.username}!</h1>
+                }
+            </div>
             {
                 currentUser &&
-                <h1>Welcome, {currentUser.username}!</h1>
-            }
-            {
-                currentUser &&
-                 <>
-                     <h2>Popular Games</h2>
-                     <GameComponent/>
-                     <h2>Recent Review</h2>
-                     <GameComponent/>
-                     {/*<SearchBar/>*/}
-                     <h2>Top Rated</h2>
-                     {/*<SearchBar/>*/}
-                     <GameComponent/>
-                 </>
+                <div className="row">
+                    <div className="col-1 d-none d-xxl-block">
+
+                    </div>
+                    <div className="col-8">
+                        <h2>Popular Games</h2>
+                        <GameComponent/>
+                        <h2>Recent Review</h2>
+                        <GameComponent/>
+                        {/*<SearchBar/>*/}
+                        <h2>Top Rated</h2>
+                        {/*<SearchBar/>*/}
+                        <GameComponent/>
+                    </div>
+                </div>
+
             }
         </div>
     )

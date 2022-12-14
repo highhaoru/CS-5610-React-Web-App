@@ -20,7 +20,7 @@ function GameListComponent() {
             </div>
             <div className="d-none d-xxl-flex flex-row justify-content-start">
                 {
-                    games && games.slice(0,9).map((game) =>
+                    games && games.slice(0,10).map((game) =>
                             <GamePopularCard key={game.imdbID} game={game}/>
                         // <li key={game.imdbID} className="list-group-item">
                         //     {game.Title}

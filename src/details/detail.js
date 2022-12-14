@@ -9,7 +9,7 @@ import {Navigate} from "react-router";
 
 
 function DetailComponent() {
-    const {joinedThis} = useSelector(state => state.group)
+    const {joinedThis, joined} = useSelector(state => state.group)
     const {currentUser} = useSelector((state) => state.users)
     const params = useParams();
     const location = useLocation();
@@ -20,7 +20,7 @@ function DetailComponent() {
 
     useEffect(() => {
         dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
-    }, [])
+    }, [joined])
 
     if (!currentUser) {
         return (<Navigate to={'/login'}/>)
@@ -34,7 +34,7 @@ function DetailComponent() {
                 gid:gameId.toString(),
                 game:{name:game.Title.toString()}
             }));
-        dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
+        // dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
     }
 
     return(

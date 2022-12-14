@@ -8,6 +8,7 @@ import {useNavigate} from "react-router-dom";
 const RegisterComponent = () => {
     const [userName, setUserName] = useState('')
     const [passWord, setPassWord] = useState('')
+    const [level, setLevel] = useState('')
     // const [create, setCreate] = useState('')
     const [error, setError] = useState(null)
     const {currentUser} = useSelector((state) => state.users)
@@ -17,7 +18,6 @@ const RegisterComponent = () => {
         return (<Navigate to={'/profile'}/>)
     }
     const templateUser = {
-        "role": "NORMAL",
         "email": "zhou.to@northeastern.edu",
         "nickName": "empty"
     }
@@ -27,9 +27,15 @@ const RegisterComponent = () => {
             ...templateUser,
             username: userName,
             password: passWord,
+            role: level? level: 'NORMAL'
         }
         // console.log(toCreate)
         dispatch(registerThunk(toCreate))
+    }
+    const handleLevel =(e) => {
+        setLevel(e.target.value)
+        // console.log(e.target.value)
+        // console.log(level)
     }
     return(
         <>
@@ -55,10 +61,26 @@ const RegisterComponent = () => {
                     type="password"
                     value={passWord}/>
             </div>
-            <div className="d-flex justify-content-center">
 
+            <div className="d-flex justify-content-center p-2" value={level}>
+                <label className="p-2">User type:</label>
+                <input type="radio" value="NORMAL"
+                       name="radio-genre" id="radio-comedy"
+                onClick={handleLevel}/>
+                <label  className="p-2" htmlFor="radio-comedy">Normal</label><br/>
+                <input type="radio" value="ADMIN"
+                       name="radio-genre" id="radio-drama"
+                       onClick={handleLevel}/>
+                <label  className="p-2" htmlFor="radio-drama">Admin</label><br/>
+                <input type="radio" value="OWNER"
+                       name="radio-genre" id="radio-scifi"
+                       onClick={handleLevel}/>
+                <label  className="p-2" htmlFor="radio-scifi">Owner</label><br/>
+
+            </div>
+            <div className="d-flex justify-content-center">
                 <button
-                    className="btn btn-primary mt-2"
+                    className="btn btn-primary m-2"
                     onClick={handleRegisterBtn}>
                     Register
                 </button>

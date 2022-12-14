@@ -17,7 +17,7 @@ const access_token = 'Bearer repgfjbdo42amcp0oedsxishesij79';
 //     })
 //     return response.data
 // }
-const omdb_URL = 'https://omdbapi.com/?apikey=f9e76a55&s=';
+const omdb_URL = 'https://omdbapi.com/?apikey=f9e76a55&type=game&s=';
 
 
 export const findGameBySearchTerm = async (term) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {deleteReviewThunk} from "../services/review-thunks";
 import {useNavigate} from "react-router-dom";
 
@@ -17,6 +17,7 @@ const ReviewItem = (
         }
     }
 ) => {
+    const {currentUser} = useSelector((state) => state.users)
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const deleteReviewHandler = (id) => {
@@ -36,9 +37,12 @@ const ReviewItem = (
                     <div className="d-flex ms-2">{post.stars} Stars</div>
                     <div className="d-flex ms-2">posted at {post.time}</div>
                 </div>
+                {
+                    currentUser.role !== "NORMAL" &&
+                    <i className="bi bi-x-lg float-end"
+                       onClick={() => deleteReviewHandler(post._id)}></i>
+                }
 
-                <i className="bi bi-x-lg float-end"
-                   onClick={() => deleteReviewHandler(post._id)}></i>
             </div>
             <div className="mt-2">
                 <p>{post.content}</p>

@@ -22,12 +22,14 @@ const GameCard = (
     const navigate = useNavigate();
     const templateHistory = {
         ...game,
-        "uid" : currentUser._id,
+        "uid" : currentUser ? currentUser._id: "",
         "gid" : game.imdbID,
         "Viewed": Date.now()
     }
     const detailHandler = () =>{
-        dispatch(createHistoryThunk(templateHistory));
+        if (currentUser){
+            dispatch(createHistoryThunk(templateHistory));
+        }
         navigate('/search/'+ game.imdbID, {state: game});
     }
     return (

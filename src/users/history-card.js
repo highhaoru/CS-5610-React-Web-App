@@ -1,5 +1,8 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {deleteReviewThunk} from "../services/review-thunks";
+import {useDispatch} from "react-redux";
+import {deleteHistoryThunk} from "../services/history-thunks";
 
 
 const HistoryCard = (
@@ -14,18 +17,24 @@ const HistoryCard = (
         }
     }
 ) =>{
+    const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const deleteHandler = (id) => {
+        dispatch(deleteHistoryThunk(id));
+    }
     return (
-        <li className="d-flex flex-column m-4 d-inline" style={{maxWidth:180}} onClick={(e)=>{
-            navigate('/search/'+ history.gid, {state: history})
-        }}>
+        <li className="d-flex flex-column m-4 d-inline" style={{maxWidth:180}} >
             <div className="">
-                <img src={`${history.Poster}`} style={{height:240,width:180}}/>
+                <img src={`${history.Poster}`} style={{height:240,width:180}}
+                     onClick={(e)=>{
+                         navigate('/search/'+ history.gid, {state: history})
+                     }}/>
             </div>
 
             <div className="">
                 <h4>{history.Title}</h4>
+                <i className="bi bi-x-lg float-end"
+                   onClick={() => deleteHandler(history._id)}></i>
                 Viewed at<br></br>
                 {history.Viewed}
             </div>

@@ -27,28 +27,27 @@ const ReviewItem = (
         navigate('/profile/'+`${uid}`)
     }
     return(
-//
-//         <li className="list-group-item">
-//             <div className="d-flex flex-row justify-content-between">
-//                 <div className="d-flex flex-row justify-content-start">
-//                     {/*<a href="" className="d-flex"*/}
-//                     {/*   onClick={() => publicProfileHandler(post.uid)}*/}
-//                     {/*>{post.userName}</a>*/}
-//                     {/*<div className="d-flex ms-2">{post.stars} Stars</div>*/}
-//                     {/*<div className="d-flex ms-2">posted at {post.time}</div>*/}
-//                 </div>
-//                 {
-//                     currentUser.role !== "NORMAL" &&
-//                     <i className="bi bi-x-lg float-end"
-//                        onClick={() => deleteReviewHandler(post._id)}></i>
-//                 }
-//
-//             </div>
-//             <div className="mt-2">
-//                 <p>{post.content}</p>
-//             </div>
-//         </li>
-    <></>
+
+        <li className="list-group-item">
+            <div className="d-flex flex-row justify-content-between">
+                <div className="d-flex flex-row justify-content-start">
+                    <a href="" className="d-flex"
+                       onClick={() => publicProfileHandler(post.uid)}
+                    >{post.userName}</a>
+                    <div className="d-flex ms-2">{post.stars} Stars</div>
+                    <div className="d-flex ms-2">posted at {post.time}</div>
+                </div>
+                {
+                    currentUser&& currentUser.role !== "NORMAL" &&
+                    <i className="bi bi-x-lg float-end"
+                       onClick={() => deleteReviewHandler(post._id)}></i>
+                }
+
+            </div>
+            <div className="mt-2">
+                <p>{post.content}</p>
+            </div>
+        </li>
     );
 };
 export default ReviewItem;

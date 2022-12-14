@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {useParams, useLocation} from "react-router-dom";
-
+import {useParams, useLocation, useNavigate} from "react-router-dom";
+import LoginComponent from "../users/loginComponent";
 import NewReview from "./new-review";
 import ReviewList from "./review-list";
 import {useDispatch, useSelector} from "react-redux";
@@ -16,7 +16,7 @@ function DetailComponent() {
     const location = useLocation();
     const gameId = params.gid;
     const game = location.state;
-
+    const navigate = useNavigate()
     const dispatch = useDispatch();
 
 
@@ -25,9 +25,6 @@ function DetailComponent() {
     }, [joined])
 
 
-    if (!currentUser) {
-        return (<Navigate to={'/login'}/>)
-    }
     // console.log(joinedThis)
     console.log(game.Title)
     const joinGroupHandler = () => {
@@ -39,7 +36,10 @@ function DetailComponent() {
             }));
         // dispatch(checkJoinedThunk({uid: currentUser._id, gid:gameId.toString()}));
     }
-
+    if (!currentUser) {
+        return (<Navigate to={'/login'}/>)
+        // navigate('/login')
+    }
 
     return(
         <div className="container">

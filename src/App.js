@@ -31,7 +31,7 @@ const store = configureStore({
         reviews: reviewsReducer,
         users: usersReducer,
         group:groupReducer,
-
+        home: homeReducer
     }
 })
 

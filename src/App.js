@@ -25,6 +25,7 @@ import ProtectedRoute from "./users/protected-route";
 import PublicProfile from "./users/public-profile";
 import profileReducer from "./users/profile-reducer";
 import historyReducer from "./users/history-reducer";
+import EditProfile from "./users/edit-profile";
 
 
 const store = configureStore({
@@ -56,6 +57,11 @@ function App() {
                             <Route path="/profile" element={
                                 <ProtectedRoute>
                                     <ProfileComponent/>
+                                </ProtectedRoute>
+                            }/>
+                            <Route path="/edit-profile" element={
+                                <ProtectedRoute>
+                                    <EditProfile/>
                                 </ProtectedRoute>
                             }/>
                             <Route path="/profile/:uid" element={<PublicProfile/>}/>

@@ -13,14 +13,15 @@ const HistoryComponent = ({uid}) => {
         dispatch(findUserByIdThunk(uid))
         dispatch(findHistoryByIdThunk(uid))
     }, [])
+    console.log(history)
     return (
         <>
             <h2>Recent Viewed</h2>
-            <div className="list-group">
+            <div className="list-group d-flex flex-row flex-wrap">
                 {
-                    history && history.map((history) =>
+                    history && history.map((post) =>
                         // <li>{history.Card}</li>
-                        <HistoryCard key={history.hID}/>
+                        <HistoryCard history= {post}/>
                     )
                 }
             </div>

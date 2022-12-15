@@ -1,7 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {findGameBySearchTerm} from "./igdb-service";
+import {findGameByImdbId, findGameBySearchTerm} from "./igdb-service";
 
 export const findGameBySearchTermThunk = createAsyncThunk(
     'findGameBySearchTerm',
     (term) => findGameBySearchTerm(term)
+)
+export const findGameByImdbIdThunk = createAsyncThunk(
+    'findMovieByImdbId',
+    (imdbID) => findGameByImdbId(imdbID)
 )

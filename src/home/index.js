@@ -5,6 +5,7 @@ import SearchBar from "../igdb/searchBar";
 import RecentReviews from "./recent-reviews";
 import HistoryComponent from "../users/history";
 import React from "react";
+import HomeHistory from "./home-history";
 // import * as movieServices from "../../services/movieServices";
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
         <div className="">
             <img className="w-100" src="/images/meta-gs.png"></img>
             <div className="container-xxl">
-                <SearchBar/>
+                <div style={{display:"none"}}><SearchBar/></div>
                 {
                     currentUser &&
                     <h1>Welcome, {currentUser.username}!</h1>
@@ -36,7 +37,7 @@ const Home = () => {
                     <GameComponent/>
                     {
                         currentUser &&
-                        <HistoryComponent uid={uid}/>
+                        <HomeHistory uid={uid}/>
                     }
 
                 </div>

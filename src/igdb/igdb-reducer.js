@@ -1,10 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {findGameBySearchTerm} from "./igdb-service";
-import {findGameBySearchTermThunk} from "./igdb-thunks";
+import {findGameByImdbIdThunk, findGameBySearchTermThunk} from "./igdb-thunks";
 
 const initialState = {
     games: [],
-    loading: false
+    loading: false,
+    details: {}
 }
 
 const igdbReducer = createSlice({
@@ -14,6 +15,9 @@ const igdbReducer = createSlice({
         [findGameBySearchTermThunk.fulfilled]: (state, action) => {
             state.games = action.payload
             state.loading = true
+        },
+        [findGameByImdbIdThunk.fulfilled]: (state, action) => {
+            state.details = action.payload
         }
     }
 })

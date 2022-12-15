@@ -13,7 +13,7 @@ const ReviewList = ({gid}) => {
     }, [])
 
     return(
-        <>
+        <div className="col-10">
             <h4>Top reviews</h4>
             {
                 loading &&
@@ -30,7 +30,7 @@ const ReviewList = ({gid}) => {
                     }
                 </ul>
             }
-        </>
+        </div>
 
     );
 };

@@ -1,12 +1,13 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {findUserByIdThunk} from "../services/users-thunks";
 import {findJoinedThunk} from "../services/group-thunks";
 import {findRecentReviewsThunk} from "../services/review-thunks";
 import {findHistoryByIdThunk} from "../services/history-thunks";
-import HistoryCard from "./history-card";
+import HomeHistoryCard from "./home-history-card";
+import GamePopularCard from "./home-card";
 
-const HistoryComponent = ({uid}) => {
+const HomeHistoryComponent = ({uid}) => {
     const dispatch = useDispatch()
     const {history} = useSelector((state) => state.history)
     useEffect(() => {
@@ -17,11 +18,20 @@ const HistoryComponent = ({uid}) => {
     return (
         <>
             <h2>Recent Viewed</h2>
-            <div className="list-group d-flex flex-row flex-wrap">
+            <div className="d-flex  d-xxl-none flex-row justify-content-start ">
                 {
-                    history && history.map((post) =>
+                    history && history.slice(0,4).map((post) =>
                         // <li>{history.Card}</li>
-                        <HistoryCard history= {post}/>
+                        <HomeHistoryCard history= {post}/>
+
+                    )
+                }
+            </div>
+            <div className="d-none d-xxl-flex flex-row justify-content-start">
+                {
+                    history && history.slice(0,10).map((post) =>
+                        // <li>{history.Card}</li>
+                        <HomeHistoryCard history= {post}/>
 
                     )
                 }
@@ -29,4 +39,4 @@ const HistoryComponent = ({uid}) => {
         </>
     )
 }
-export default HistoryComponent
+export default HomeHistoryComponent

@@ -16,7 +16,6 @@ const LoginComponent = () => {
             dispatch(loginThunk({username, password}))
             // navigate('/profile')
         } catch (e) {
-
         }
     }
     const handleRegister = () => {

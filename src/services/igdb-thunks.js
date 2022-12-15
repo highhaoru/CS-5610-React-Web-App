@@ -9,3 +9,7 @@ export const findGameByImdbIdThunk = createAsyncThunk(
     'findMovieByImdbId',
     (imdbID) => findGameByImdbId(imdbID)
 )
+export const findGameRandomThunk = createAsyncThunk(
+    'findGameRandom',
+    (term) => findGameBySearchTerm(term)
+)

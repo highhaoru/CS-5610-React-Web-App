@@ -6,6 +6,7 @@ import RecentReviews from "./recent-reviews";
 import HistoryComponent from "../users/history";
 import React from "react";
 import HomeHistory from "./home-history";
+import RecommendGames from "./recommend-games";
 // import * as movieServices from "../../services/movieServices";
 
 const Home = () => {
@@ -30,10 +31,10 @@ const Home = () => {
             <div className="row">
                 <div className="col-1 d-none d-xxl-block">
                 </div>
-                <div className="col-8">
-                    <h2>Popular Games</h2>
-                    <GameComponent/>
-                    <h2>Top Rated</h2>
+                <div className="col-8 mt-2">
+                    <h2>Recommend For You</h2>
+                    <RecommendGames/>
+                    <h2>Most Popular</h2>
                     <GameComponent/>
                     {
                         currentUser &&

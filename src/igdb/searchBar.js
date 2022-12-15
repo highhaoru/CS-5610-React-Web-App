@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {findGameBySearchTermThunk} from "./igdb-thunks";
+import {findGameBySearchTermThunk} from "../services/igdb-thunks";
 import GameCard from "./igdb-card";
 
 

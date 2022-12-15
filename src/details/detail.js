@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {checkJoinedThunk, joinGroupThunk} from "../services/group-thunks";
 import {Navigate} from "react-router";
-import {findGameByImdbIdThunk} from "../igdb/igdb-thunks";
+import {findGameByImdbIdThunk} from "../services/igdb-thunks";
 
 
 function DetailComponent() {

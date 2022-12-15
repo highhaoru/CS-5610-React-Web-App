@@ -13,7 +13,7 @@ const ProfileComponent = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const uid = currentUser._id.toString()
+    const uid = currentUser ? currentUser._id.toString() : ""
 
     const handleLogoutBtn = () => {
         dispatch(logoutThunk())

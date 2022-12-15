@@ -5,7 +5,6 @@ import {findJoinedThunk} from "../services/group-thunks";
 import {findRecentReviewsThunk} from "../services/review-thunks";
 import {findHistoryByIdThunk} from "../services/history-thunks";
 import HistoryCard from "./history-card";
-import HomeHistoryCard from "../home/home-history-card";
 
 const HistoryComponent = ({uid}) => {
     const dispatch = useDispatch()
@@ -22,7 +21,7 @@ const HistoryComponent = ({uid}) => {
                 {
                     history && history.map((post) =>
                         // <li>{history.Card}</li>
-                        <HomeHistoryCard history= {post}/>
+                        <HistoryCard history= {post}/>
 
                     )
                 }

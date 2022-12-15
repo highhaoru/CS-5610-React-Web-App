@@ -1,5 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {createHistoryThunk} from "../services/history-thunks";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const GamePopularCard = (
@@ -14,10 +16,21 @@ const GamePopularCard = (
     }
 ) =>{
     const navigate = useNavigate();
-
+    const {currentUser} = useSelector((state) => state.users)
+    const dispatch = useDispatch();
+    const templateHistory = {
+        ...game,
+        "uid" : currentUser ? currentUser._id: "",
+        "gid" : game.imdbID,
+        "Viewed": Date.now()
+    }
     return (
-        <li className="d-flex flex-column m-4 d-inline" style={{maxWidth:180}} onClick={(e)=>{
-            navigate('/search/'+ game.imdbID, {state: game})
+        <li className="d-flex flex-column m-4 d-inline" style={{maxWidth:180}}
+            onClick={(e)=>{
+                if (currentUser){
+                    dispatch(createHistoryThunk(templateHistory));
+                }
+                navigate('/search/'+ game.imdbID, {state: game})
         }}>
             <div className="">
                 <img src={`${game.Poster}`} style={{height:240,width:180}}/>

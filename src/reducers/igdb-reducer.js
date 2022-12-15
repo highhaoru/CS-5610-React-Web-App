@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {findGameBySearchTerm} from "./igdb-service";
-import {findGameByImdbIdThunk, findGameBySearchTermThunk} from "./igdb-thunks";
+import {findGameBySearchTerm} from "../igdb/igdb-service";
+import {findGameByImdbIdThunk, findGameBySearchTermThunk} from "../igdb/igdb-thunks";
 
 const initialState = {
     games: [],

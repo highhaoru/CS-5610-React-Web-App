@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {updateProfile} from "./profile-reducer";
+import {updateProfile} from "../reducers/profile-reducer";
 
 const EditProfile = () => {
     const userProfile = useSelector((state) => state.profile);

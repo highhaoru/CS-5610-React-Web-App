@@ -11,20 +11,20 @@ import './App.css';
 import NavbarContent from "./nav";
 import SearchComponent from "./igdb";
 import {Provider} from "react-redux";
-import igdbReducer from "./igdb/igdb-reducer";
-import reviewsReducer from "./details/reviews-reducer"
-import usersReducer from "./users/user-reducer"
-import homeReducer from "./home/home-reducer";
+import igdbReducer from "./reducers/igdb-reducer";
+import reviewsReducer from "./reducers/reviews-reducer"
+import usersReducer from "./reducers/user-reducer"
+import homeReducer from "./reducers/home-reducer";
 // import userReducer from "./users/user-reducer";
 import DetailComponent from "./details/detail";
 
 import CurrentUser from "./users/current-user";
-import groupReducer from "./details/group-reducer";
+import groupReducer from "./reducers/group-reducer";
 import recentReviews from "./home/recent-reviews";
 import ProtectedRoute from "./users/protected-route";
 import PublicProfile from "./users/public-profile";
-import profileReducer from "./users/profile-reducer";
-import historyReducer from "./users/history-reducer";
+import profileReducer from "./reducers/profile-reducer";
+import historyReducer from "./reducers/history-reducer";
 import EditProfile from "./users/edit-profile";
 
 

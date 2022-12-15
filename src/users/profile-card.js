@@ -6,6 +6,7 @@ import {faBirthdayCake, faCalendarAlt, faLongArrowLeft, faMapMarkerAlt} from "@f
 
 const ProfileCard = () =>{
     // const me = useSelector((state) => state.profile);
+    const {currentUser} = useSelector((state) => state.users)
     const userProfile = useSelector(
         (state) => state.profile);
     return (
@@ -14,6 +15,11 @@ const ProfileCard = () =>{
 
                 <h5 className="pt-3">{userProfile.firstName} {userProfile.lastName}</h5>
                 <p className="text-muted">@{userProfile.handle}</p>
+                {
+                    currentUser &&
+                    <p className="text-muted">User Level: {currentUser.role}</p>
+                }
+
                 <p className="mt-2">{userProfile.bio}</p>
                 <div className="d-flex justify-content-start text-muted mt-2">
                     <div className="">

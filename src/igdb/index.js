@@ -24,15 +24,18 @@ function SearchComponent() {
                     No results, please enter a name
                 </div>
             }
-            {
-                games && games.map((game) =>
-                    <GameCard key={game.imdbID} game={game}/>
-                    // <li key={game.imdbID} className="list-group-item">
-                    //     {game.Title}
-                    //     <img src={game.Poster}></img>
-                    // </li>
-                )
-            }
+            <div className="d-flex flex-wrap">
+                {
+                    games && games.map((game) =>
+                            <GameCard key={game.imdbID} game={game}/>
+                        // <li key={game.imdbID} className="list-group-item">
+                        //     {game.Title}
+                        //     <img src={game.Poster}></img>
+                        // </li>
+                    )
+                }
+            </div>
+
 
 
 

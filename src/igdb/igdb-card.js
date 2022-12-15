@@ -33,13 +33,13 @@ const GameCard = (
         navigate('/search/'+ game.imdbID, {state: game});
     }
     return (
-        <li className="row mt-4" onClick={detailHandler}>
-            <div className="col-2"></div>
-            <div className="col-2">
+        <li className="d-flex flex-column m-4 d-inline" style={{maxWidth:180}}
+            onClick={detailHandler}>
+            <div className="">
                 <img src={`${game.Poster}`} style={{height:240,width:180}}/>
             </div>
 
-            <div className="col-8 col">
+            <div className="">
                 <h4>{game.Title}</h4>
                 {game.Year}
             </div>

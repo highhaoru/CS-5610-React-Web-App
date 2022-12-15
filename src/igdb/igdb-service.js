@@ -18,7 +18,7 @@ const access_token = 'Bearer repgfjbdo42amcp0oedsxishesij79';
 //     return response.data
 // }
 const omdb_URL = 'https://omdbapi.com/?apikey=f9e76a55&type=game&s=';
-const DETAILS_URL = 'https://omdbapi.com/?apikey=f9e76a55&type=game&i='
+const DETAILS_URL = 'https://omdbapi.com/?apikey=f9e76a55&type=game&Plot=full&i='
 
 export const findGameBySearchTerm = async (term) => {
     const response = await axios.get(`${omdb_URL}${term}`)
